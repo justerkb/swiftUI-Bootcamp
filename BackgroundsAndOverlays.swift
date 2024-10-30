@@ -14,6 +14,7 @@ struct BackgroundsAndOverlays: View {
             .background(
                 Circle()
                     .fill(Color.brown)
+
                 
             )
             .frame(width: 200, height: 200)
@@ -21,13 +22,24 @@ struct BackgroundsAndOverlays: View {
                 Circle()
                     .fill(Color.blue)
             )
-        
+            .overlay(
+                Rectangle()
+                    .frame(width:20 , height: 5)
+            )
         Text("Second")
             .background(
                 Circle()
                     .fill(Color.brown)
                     .frame(width:100 , height: 100) 
             )
+        
+        Image("firstImage")
+            .resizable()
+            .frame(width:100 , height: 100)
+            .overlay(
+                Text("Overlay")
+            )
+            
     }
 }
 
