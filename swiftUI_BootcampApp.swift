@@ -11,7 +11,7 @@ import SwiftUI
 struct swiftUI_BootcampApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SafeAreas()
         }
     }
 }

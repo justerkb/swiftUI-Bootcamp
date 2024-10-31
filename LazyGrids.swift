@@ -12,15 +12,33 @@ struct LazyGrids: View {
     let columns: [GridItem] = [
 //        GridItem(.flexible(), spacing: nil, alignment: nil ),
 //        GridItem(.flexible(), spacing: nil, alignment: nil )
-        GridItem(.adaptive(minimum: 50, maximum: 150))
+//        GridItem(.adaptive(minimum: 50, maximum: 150))
+        GridItem(.flexible(), spacing: 1),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+
     ]
     var body: some View {
         ScrollView(.vertical) {
-            LazyVGrid(columns: columns) {
-                ForEach(0..<50) { index in
-                    Rectangle()
-                        .frame(height: 50 )
+            Rectangle()
+                .fill(Color.red)
+                .frame(width: 100, height: 300)
+            LazyVGrid(columns: columns,
+                      spacing: 5,
+                      pinnedViews: [.sectionHeaders]
+                      ){
+                Section {
+                    ForEach(0..<50) { index in
+                        Rectangle()
+                            .frame(height: 150)
+                    }
+                } header: {
+                    Text("ola amigos")
+                        .font(.system(size: 40))
+                        .foregroundStyle(Color.white)
                 }
+
+                
                 
             }
         }
